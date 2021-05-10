@@ -18,7 +18,7 @@ df_eda %<>% dplyr::select(-OUTCOME, -PERIOD, -id, -CURSIT, -CSS)
 full_names = c('Age', 'Sex','Pregnancy','Pregnancy Weeks', 'Body mass index', 'Systolic blood pressure', 'Diastolic blood pressure',
                'Heart rate', 'Body temperature', 'Fever', 'Cough', 'Sputum', 'Soar throat', 'Rhinorrhea', 'Myalgia', 'Fatigue',
                'Shortness of breath', 'Headache', 'Altered conciousness', 'Vomiting', 'Diarrhea', 'Diabetes mellitus', 'Hypertension',
-               'Heart failure', 'Chronic cardiovascular disease', 'Asthma', 'COPD', 'Chronic kideny disease',
+               'Heart failure', 'Cardiovascular disease', 'Asthma', 'COPD', 'Chronic kidney disease',
                'Malignancy', 'Chronic liver disease', 'Autoimmune disease', 'Dementia', 'Hemoglobin', 'Hematocrit', 'Lymphocyte',
                'Platelet', 'WBC', 'Severe Patient')
 df_names = tibble(Variable = names(df_eda), Full_Name = full_names)
