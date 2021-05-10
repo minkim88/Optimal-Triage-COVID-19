@@ -125,9 +125,9 @@ count_death = function(sim, data, Cure = 0.507, Self = 0.01){
   
 }
 
-# Repeat simulation to achieve consistent results
+# Repeat simulation througout the entire threshold range [0,1] by 0.01
 
-find_threshold = function(patient_flow, rep = rep, seed = 1, name){
+find_threshold = function(patient_flow, rep = 20, seed = 1, name){
   sim_df = tibble()
   
   for ( i in 1:rep){
@@ -151,3 +151,30 @@ find_threshold = function(patient_flow, rep = rep, seed = 1, name){
   return(sim_df)
   
 }
+
+            
+# Simulate using J-index
+
+simulation_J_index = function(patient_flow, J_index, rep = 20, seed = 1, name){
+  sim_df = tibble()
+  
+  for ( i in 1:rep){
+    
+    patient_df = simulate_distribution(pred, patient_flow, seed = seed)
+    
+    sim = run_simulation(patient_df = patient_df, seed = seed, threshold = J_index)
+    temp = count_death(sim, patient_df)
+
+    sim_df = bind_rows(sim_df,
+                       tibble(rep = i, threshold = J_index, death = temp$death, resource_indep = temp$resource_indep,
+                              resource_dep = temp$resource_dep, threshold_dep = temp$threshold_dep, tot = sum(patient_flow)))
+    seed = seed + 1  
+    print(i)
+    gc()
+  }
+  
+  return(sim_df)
+  
+}
+
+
