@@ -137,14 +137,9 @@ H_aggr %>% mutate(mortality = death/tot, H = factor(H)) %>%
               group_by(threshold, H) %>% summarise(mortality = mean(mortality)) %>%
               rename(J_Index = threshold, J_mortality = mortality)) %>%
   dplyr::select(H, threshold, J_Index, everything()) %>%
-  # mutate(`Reduced mortality (%)` = (Opt_mortality - J_mortality)/J_mortality) %>%
-  # mutate(threshold = threshold,
-  #        `J Index Mortality - Optimized Mortality` = J_mortality - Opt_mortality,
-  #        Opt_mortality = Opt_mortality) %>%
   mutate(threshold = threshold,
          `J Index Mortality - Optimized Mortality` = (J_mortality-Opt_mortality)/J_mortality,
          Opt_mortality = Opt_mortality) %>%
-  
   dplyr::select(-J_Index, -J_mortality) %>%
   rename(Influx = H, `Optimal Threshold` = threshold, `Optimized Mortality` = Opt_mortality) %>%
   arrange(Influx) %>% mutate(Influx = paste0('H',Influx)) %>%
@@ -155,7 +150,6 @@ H_aggr %>% mutate(mortality = death/tot, H = factor(H)) %>%
                       group_by(threshold, R0) %>% summarise(mortality = mean(mortality)) %>%
                       rename(J_Index = threshold, J_mortality = mortality)) %>%
           dplyr::select(R0, threshold, J_Index, everything()) %>%
-          # mutate(`Reduced mortality (%)` = (Opt_mortality - J_mortality)/J_mortality) %>%
           mutate(`J Index Mortality - Optimized Mortality` = (J_mortality-Opt_mortality)/J_mortality) %>%
           dplyr::select(-J_Index, -J_mortality) %>%
           rename(Influx = R0, `Optimal Threshold` = threshold, `Optimized Mortality` = Opt_mortality) %>%
