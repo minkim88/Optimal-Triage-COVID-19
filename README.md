@@ -13,11 +13,9 @@ Data processing and modeling were implemented in R.
 
 ### Dependencies
 
-library(ggplot2)<br />
 library(magrittr)<br />
 library(caret)<br />
 library(tidyverse)<br />
-library(dplyr)<br />
 library(xgboost)<br />
 library(pROC)<br />
 library(SHAPforxgboost)<br />
