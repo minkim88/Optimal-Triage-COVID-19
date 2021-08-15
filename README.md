@@ -5,7 +5,7 @@ This repository contains a source code for optimal triage of severe COVID-19 pat
 
 Patient severity prediction web application: http://covid19severity.duckdns.org:8502/
 
-*The web application is not to be used as a substitute for medical advice, diagnosis, or treatment of any health condition or problem. The authors and the developers of the application are in no way liable for outcomes following the use of the application.*
+*The web application is not to be used as a substitute for medical advice, diagnosis, or treatment of any health condition or problem.*
 
 
 ## Setup
