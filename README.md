@@ -3,7 +3,7 @@ Study of optimal triage for severe COVID-19 patients to minimize mortality rate.
 
 This repository contains a source code for optimal triage of severe COVID-19 patients.
 
-Patient severity prediction web application: http://covid19severity.duckdns.org:8502/
+Patient severity prediction web application: http://covid19severity.duckdns.org
 
 *The web application is not to be used as a substitute for medical advice, diagnosis, or treatment of any health condition or problem.*
 
